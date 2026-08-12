@@ -294,4 +294,3 @@ while True:
     else:
         print("Opción no válida.")
 
-print(cuenta)
