@@ -17,22 +17,6 @@ Actualmente, el proyecto permite crear clientes y diferentes tipos de cuentas ba
 - Buscar y gestionar cuentas mediante su número de cuenta.
 - Validar operaciones incorrectas, como depósitos negativos, retiros inválidos o cuentas inexistentes.
 
-## Conceptos utilizados
-
-Durante el desarrollo de este proyecto se utilizaron diferentes conceptos de Python y programación orientada a objetos:
-
-- Programación orientada a objetos (POO).
-- Clases y objetos.
-- Herencia.
-- Sobrescritura de métodos.
-- Encapsulamiento.
-- Métodos públicos y protegidos.
-- Atributos privados.
-- Manejo de excepciones con `try`, `except` y `raise`.
-- Uso de `super()`.
-- Uso de `isinstance()`.
-- Listas para almacenar clientes y cuentas.
-
 ## Estructura principal
 
 El sistema está compuesto por las siguientes clases:
@@ -56,23 +40,6 @@ Representa a un cliente del banco mediante un identificador y permite asociarle 
 ### `Banco`
 
 Gestiona los clientes y permite buscar cuentas, realizar depósitos, retiros, consultar saldos y aplicar intereses.
-
-## Cómo ejecutar el programa
-
-1. Tener Python instalado.
-2. Descargar o clonar este repositorio.
-3. Abrir una terminal en la carpeta del proyecto.
-4. Ejecutar:
-
-```bash
-python3 "Cuenta Bancaria/sistema_bancario.py"
-```
-
-En algunos sistemas también se puede utilizar:
-
-```bash
-python "Cuenta Bancaria/sistema_bancario.py"
-```
 
 ## Versión
 
