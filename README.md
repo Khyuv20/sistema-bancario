@@ -1,224 +1,363 @@
-# Sistema Bancario en Python
+# 🏦 Sistema Bancario en Python
 
-Sistema bancario desarrollado en Python como proyecto de aprendizaje para practicar programación orientada a objetos, validación de datos, manejo de excepciones, modularización y organización de proyectos.
+Sistema bancario desarrollado en **Python** como proyecto de aprendizaje para practicar y aplicar conceptos de programación, Programación Orientada a Objetos (POO), manejo de errores, modularización, Git e interfaces gráficas con Tkinter.
 
-Actualmente, el sistema permite gestionar clientes y diferentes tipos de cuentas bancarias, realizar operaciones entre ellas, consultar historiales de movimientos y controlar operaciones incorrectas mediante excepciones.
+El proyecto comenzó como un sistema bancario sencillo ejecutado desde la terminal y fue evolucionando progresivamente hasta contar con una **interfaz gráfica completa**.
 
-## Funcionalidades
+La versión final del proyecto es **Banco 5.0**.
 
-- Crear cuentas de ahorro y cuentas corrientes.
-- Generar números de cuenta automáticamente.
-- Registrar clientes mediante un identificador.
-- Asociar múltiples cuentas a un mismo cliente.
-- Buscar clientes mediante su identificador.
-- Buscar y gestionar cuentas mediante su número de cuenta.
-- Consultar el saldo de una cuenta.
-- Depositar dinero.
-- Retirar dinero.
+---
+
+## ✨ Características
+
+El sistema permite:
+
+- Crear clientes.
+- Crear cuentas bancarias asociadas a clientes.
+- Crear cuentas de ahorro.
+- Crear cuentas corrientes.
+- Consultar saldos.
+- Realizar depósitos.
+- Realizar retiros.
 - Realizar transferencias entre cuentas.
-- Consultar el historial de movimientos de una cuenta.
+- Consultar el historial de movimientos.
 - Aplicar intereses a cuentas de ahorro.
-- Cobrar comisión al retirar dinero de cuentas corrientes.
-- Permitir sobregiro en cuentas corrientes hasta un límite establecido.
-- Utilizar un menú interactivo desde la terminal.
+- Validar datos y operaciones incorrectas.
+- Manejar errores sin cerrar el programa.
+- Utilizar el sistema mediante una interfaz gráfica desarrollada con Tkinter.
 
-## Transferencias
+---
 
-El sistema permite realizar transferencias entre dos cuentas registradas en el banco.
+## 🏦 Tipos de cuenta
 
-Antes de realizar una transferencia se valida que:
+### Cuenta de ahorro
 
-- La cuenta de origen exista.
-- La cuenta de destino exista.
-- La cantidad sea mayor que cero.
-- La cuenta de origen y destino sean diferentes.
-- La cuenta de origen pueda realizar el retiro.
+Las cuentas de ahorro incluyen una tasa de interés.
 
-Si la transferencia no puede completarse después de retirar el dinero de la cuenta de origen, el sistema devuelve el dinero descontado para evitar dejar la operación incompleta.
+El sistema permite aplicar el interés correspondiente sobre el saldo de la cuenta.
 
-## Historial de movimientos
+### Cuenta corriente
 
-Cada cuenta mantiene un historial de sus operaciones.
+Las cuentas corrientes cuentan con características propias como:
 
-Actualmente pueden registrarse movimientos como:
+- Comisión por retiro.
+- Límite de sobregiro.
+
+---
+
+## 💸 Operaciones bancarias
+
+### Depósitos
+
+Permite depositar dinero utilizando el número de cuenta.
+
+El sistema valida que la cantidad ingresada sea válida.
+
+### Retiros
+
+Permite retirar dinero de una cuenta.
+
+Se realizan validaciones para evitar operaciones inválidas o retiros que no estén permitidos según las reglas de la cuenta.
+
+### Transferencias
+
+Permite transferir dinero entre dos cuentas utilizando:
+
+- Número de cuenta de origen.
+- Número de cuenta de destino.
+- Cantidad a transferir.
+
+El sistema valida, entre otras cosas:
+
+- Que ambas cuentas existan.
+- Que la cantidad sea válida.
+- Que la cuenta de origen y destino no sean la misma.
+- Que la operación pueda realizarse correctamente.
+
+Las transferencias también quedan registradas en el historial de ambas cuentas.
+
+### Historial
+
+Cada cuenta mantiene un historial de sus movimientos.
+
+Puede incluir operaciones como:
 
 - Depósitos.
 - Retiros.
 - Transferencias enviadas.
 - Transferencias recibidas.
+- Intereses aplicados.
 
-En las cuentas corrientes, los retiros también pueden registrar información sobre la comisión y el total descontado.
+El historial puede consultarse desde la interfaz gráfica utilizando el número de cuenta.
 
-Las transferencias se registran directamente como transferencias para evitar mostrar movimientos duplicados como retiro y depósito.
+---
 
-## Validaciones
+## 🖥️ Interfaz gráfica
 
-El sistema incluye diferentes validaciones para evitar estados y operaciones incorrectas.
+Banco 5.0 incorpora una interfaz gráfica desarrollada con **Tkinter**.
 
-Entre ellas:
+La interfaz permite realizar las principales operaciones del sistema sin utilizar directamente la terminal.
 
-- El saldo inicial no puede ser negativo.
-- Los depósitos deben ser mayores que cero.
-- Los retiros deben ser mayores que cero.
-- No se puede retirar más dinero del permitido.
-- Las cuentas corrientes respetan su límite de sobregiro.
-- La comisión de una cuenta corriente no puede ser negativa.
-- El límite de sobregiro no puede ser negativo.
-- La tasa de interés no puede ser negativa.
-- El titular de una cuenta debe ser texto y no puede estar vacío.
-- El identificador de un cliente debe ser un número entero mayor que cero.
-- El nombre de un cliente no puede estar vacío.
-- No pueden existir dos clientes con el mismo identificador.
-- Una misma cuenta no puede registrarse varias veces.
-- No se puede transferir dinero a la misma cuenta.
-- Las operaciones sobre cuentas inexistentes generan un error controlado.
+Las operaciones disponibles incluyen:
 
-## Estructura del proyecto
+- Crear cliente.
+- Crear cuenta.
+- Depositar.
+- Retirar.
+- Transferir.
+- Consultar historial.
+- Aplicar intereses.
 
-A partir de la versión 4.0, el proyecto está dividido en diferentes módulos para separar responsabilidades y facilitar su mantenimiento.
+La interfaz utiliza distintos widgets de Tkinter, entre ellos:
+
+- `Frame`
+- `Label`
+- `Entry`
+- `Button`
+- `Radiobutton`
+- `StringVar`
+- `Text`
+
+También se utilizan los gestores de geometría:
+
+- `pack()`
+- `grid()`
+
+Los diferentes formularios de operaciones se muestran u ocultan dependiendo de la opción seleccionada por el usuario.
+
+---
+
+## 🧠 Conceptos aplicados
+
+Durante el desarrollo del proyecto se utilizaron conceptos como:
+
+### Python
+
+- Variables
+- Condicionales
+- Bucles
+- Funciones
+- Listas
+- Manejo de excepciones
+- Módulos
+- Imports
+
+### Programación Orientada a Objetos
+
+- Clases
+- Objetos
+- Atributos
+- Métodos
+- Encapsulamiento
+- Herencia
+- Composición
+- Métodos protegidos
+- Representación de objetos con `__str__`
+
+### Manejo de errores
+
+Se utiliza `try / except` y excepciones como `ValueError` para controlar situaciones como:
+
+- Datos numéricos inválidos.
+- Cantidades incorrectas.
+- Clientes inexistentes.
+- Cuentas inexistentes.
+- Clientes duplicados.
+- Operaciones bancarias no permitidas.
+
+### Interfaces gráficas
+
+Se utilizó Tkinter para aprender conceptos como:
+
+- Creación de ventanas.
+- Organización mediante Frames.
+- Entrada de datos.
+- Botones y eventos.
+- Radiobuttons.
+- Variables de Tkinter.
+- Mostrar y ocultar elementos.
+- Distribución mediante `pack()` y `grid()`.
+- Visualización de contenido multilínea mediante `Text`.
+
+## 📁 Estructura del proyecto
 
 ```text
 Cuenta Bancaria/
-├── main.py
+│
 ├── banco.py
-└── cuentas.py
+├── cuentas.py
+├── gui.py
+└── main.py
 ```
 
 ### `cuentas.py`
 
-Contiene las clases relacionadas con los diferentes tipos de cuenta.
+Contiene las clases relacionadas con las cuentas bancarias:
 
-#### `Cuenta`
+- `Cuenta`
+- `CuentaAhorro`
+- `CuentaCorriente`
 
-Clase base que contiene el comportamiento común de las cuentas bancarias.
+Aquí se encuentra gran parte de la lógica relacionada con:
 
-Entre sus responsabilidades se encuentran:
-
-- Administrar el saldo.
-- Generar números de cuenta.
-- Realizar depósitos.
-- Realizar retiros.
-- Mantener el historial de movimientos.
-
-#### `CuentaAhorro`
-
-Hereda de `Cuenta` y añade una tasa de interés que puede aplicarse al saldo.
-
-#### `CuentaCorriente`
-
-Hereda de `Cuenta` y modifica el comportamiento de los retiros para:
-
-- Cobrar una comisión.
-- Permitir sobregiro hasta un límite establecido.
+- Saldo.
+- Depósitos.
+- Retiros.
+- Intereses.
+- Historial.
+- Comisiones.
+- Sobregiro.
 
 ### `banco.py`
 
-Contiene las clases relacionadas con la administración del banco.
+Contiene la lógica relacionada con el banco y los clientes.
 
-#### `Cliente`
+Incluye clases como:
 
-Representa a un cliente mediante un identificador y un nombre.
+- `Banco`
+- `Cliente`
 
-Cada cliente puede tener múltiples cuentas asociadas.
+Se encarga de operaciones como:
 
-#### `Banco`
-
-Gestiona los clientes y las cuentas del sistema.
-
-Entre sus responsabilidades se encuentran:
-
-- Registrar clientes.
+- Gestionar clientes.
 - Buscar clientes.
-- Asociar cuentas.
 - Buscar cuentas.
-- Consultar saldos.
-- Realizar depósitos.
-- Realizar retiros.
-- Aplicar intereses.
-- Realizar transferencias.
-- Consultar historiales.
+- Realizar operaciones utilizando números de cuenta.
+- Transferencias.
+- Consulta de historial.
+- Aplicación de intereses.
 
 ### `main.py`
 
-Es el punto de entrada del programa.
+Contiene la versión del sistema utilizada desde la terminal.
 
-Contiene el menú interactivo desde el cual el usuario puede utilizar las diferentes funcionalidades del sistema.
+### `gui.py`
 
-El programa se inicia mediante:
+Contiene la interfaz gráfica de **Banco 5.0**, desarrollada con Tkinter.
 
-```python
-if __name__ == "__main__":
-    main()
+---
+
+## 🚀 Ejecución
+
+Para ejecutar la interfaz gráfica:
+
+```bash
+python gui.py
 ```
 
-Esto permite separar la ejecución principal de los módulos que contienen la lógica del sistema.
+Dependiendo de la instalación de Python, también puede utilizarse:
 
-## Conceptos utilizados
+```bash
+python3 gui.py
+```
 
-Durante el desarrollo del proyecto se han aplicado conceptos de Python como:
-
-- Variables y tipos de datos.
-- Condicionales.
-- Bucles.
-- Funciones.
-- Listas.
-- Manejo de excepciones con `try`, `except` y `raise`.
-- Programación orientada a objetos.
-- Clases y objetos.
-- Encapsulamiento.
-- Atributos privados y protegidos.
-- Herencia.
-- Sobrescritura de métodos.
-- Uso de `super()`.
-- Uso de `isinstance()`.
-- Métodos especiales como `__init__()` y `__str__()`.
-- Módulos.
-- Imports.
-- Separación de responsabilidades.
-- Uso de `if __name__ == "__main__"`.
-
-## Ejecución
-
-Para ejecutar el programa, situarse en la carpeta del proyecto y ejecutar:
+Para ejecutar la versión de terminal:
 
 ```bash
 python main.py
 ```
 
-Después se mostrará el menú bancario en la terminal.
+o:
 
-## Versión
+```bash
+python3 main.py
+```
 
-Versión actual:
+---
 
-`v4.0`
+## 📈 Evolución del proyecto
+
+El sistema fue desarrollado de manera incremental.
+
+### Banco 1.x
+
+Primera implementación de una cuenta bancaria.
+
+Se introdujeron conceptos básicos como:
+
+- Clase `Cuenta`.
+- Titular.
+- Saldo.
+- Depósitos.
+- Retiros.
+
+### Banco 2.0
+
+El proyecto comenzó a incorporar más conceptos de Programación Orientada a Objetos.
+
+Se añadieron distintos tipos de cuenta y se trabajó con herencia.
+
+### Banco 3.0
+
+Se incorporaron conceptos como:
+
+- Clientes.
+- Banco.
+- Múltiples cuentas.
+- Búsqueda mediante número de cuenta.
+- Gestión centralizada de operaciones.
 
 ### Banco 4.0
 
-Esta versión incorpora principalmente:
+Se amplió considerablemente la lógica del sistema.
 
-- Transferencias entre cuentas.
+Se añadieron:
+
+- Transferencias.
 - Historial de movimientos.
-- Nuevas validaciones.
-- Mejoras en la lógica de las operaciones.
-- Prevención de transferencias incompletas.
-- Separación del proyecto en múltiples archivos.
+- Más validaciones.
+- Manejo de errores.
+- Separación del proyecto en diferentes archivos.
 - Uso de módulos e imports.
-- Nuevo punto de entrada mediante `main.py`.
-- Integración de transferencias e historial en el menú.
 
-## Próxima versión
+### Banco 5.0
 
-La próxima etapa del proyecto será:
+Se desarrolló una interfaz gráfica utilizando **Tkinter**.
 
-`v5.0`
+La lógica bancaria desarrollada anteriormente fue reutilizada desde la GUI, manteniendo separadas la lógica del sistema y la interfaz.
 
-El objetivo principal de Banco 5.0 será desarrollar una **interfaz gráfica** para dejar de depender exclusivamente de la terminal.
+Banco 5.0 representa la versión final de este proyecto.
 
-La lógica bancaria desarrollada hasta la versión 4.0 se mantendrá separada de la interfaz, permitiendo reutilizar las clases y módulos existentes sin tener que reescribir el funcionamiento interno del banco.
+---
 
-## Objetivo del proyecto
+## 🎯 Objetivo del proyecto
 
-Este proyecto tiene como objetivo principal aprender Python mediante la construcción progresiva de una aplicación real.
+El objetivo principal de este proyecto no es representar un sistema bancario real listo para producción.
 
-Cada versión amplía el sistema e introduce nuevos conceptos, buscando mejorar tanto las funcionalidades como la estructura y calidad del código.
+Fue desarrollado como proyecto práctico para aprender programación progresivamente y aplicar los conceptos aprendidos en un sistema cada vez más completo.
+
+El desarrollo permitió pasar de ejercicios individuales a trabajar con un programa compuesto por múltiples clases, archivos y responsabilidades.
+
+---
+
+## ⚠️ Limitaciones
+
+Esta aplicación es un proyecto educativo.
+
+Actualmente:
+
+- Los datos se almacenan en memoria.
+- Los datos se pierden al cerrar el programa.
+- No utiliza una base de datos.
+- No implementa autenticación real.
+- No utiliza cifrado ni mecanismos de seguridad propios de un sistema bancario real.
+- No está diseñado para manejar dinero real.
+
+Una posible evolución futura sería implementar persistencia mediante una base de datos.
+
+---
+
+## 🔮 Posible continuación
+
+Aunque Banco 5.0 representa el cierre del proyecto actual, una posible versión futura podría incorporar:
+
+- SQLite.
+- SQL.
+- Persistencia de clientes.
+- Persistencia de cuentas.
+- Persistencia del historial de movimientos.
+
+Esto permitiría conservar la información incluso después de cerrar la aplicación.
+
+---
+
