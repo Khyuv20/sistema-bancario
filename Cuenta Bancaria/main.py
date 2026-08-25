@@ -1,18 +1,18 @@
-from cuentas import Cuenta, CuentaAhorro, CuentaCorriente
+from cuentas import CuentaAhorro, CuentaCorriente
 from banco import Banco, Cliente
 
 def main():
     banco = Banco("Mi Banco")
 
     while True:
-        print("\n--- MENÚ BANCARIO ---")
+        print("\n--- Banco ---")
         print("1. Crear cuenta de ahorro")
         print("2. Crear cuenta corriente")
-        print("3. Consultar saldo")
-        print("4. Depositar")
-        print("5. Retirar")
+        print("3. Depositar")
+        print("4. Retirar")
+        print("5. Transferir")
         print("6. Aplicar interés")
-        print("7. Transferir")
+        print("7. Consultar saldo")
         print("8. Consultar historial")
         print("9. Salir")
 
@@ -91,14 +91,6 @@ def main():
                 print(f"Error: {error}")
             
         elif opcion == "3":
-            try:
-                cuenta_numero = int(input("Ingrese el número de cuenta: "))
-                saldo = banco.consultar_saldo(cuenta_numero)
-                print(f"Saldo de la cuenta {cuenta_numero}: {saldo}")
-            except ValueError as error:
-                print(f"Error: {error}")
-                
-        elif opcion == "4":
             
             try:
                 numero_cuenta = int(input("Ingrese el número de cuenta: "))
@@ -108,12 +100,24 @@ def main():
             except ValueError as error:
                 print(f"Error: {error}")
         
-        elif opcion == "5":
+        elif opcion == "4":
             try:
                 numero_cuenta = int(input("Ingrese el número de cuenta: "))
                 cantidad = float(input("Ingrese la cantidad a retirar: "))
                 banco.retirar(numero_cuenta, cantidad)
                 print(f"Se han retirado {cantidad} de la cuenta {numero_cuenta}.")
+            except ValueError as error:
+                print(f"Error: {error}")
+
+        elif opcion == "5":
+            try:
+                numero_origen = int(input("Ingrese el número de cuenta de origen: "))
+                numero_destino = int(input("Ingrese el número de cuenta del destino: "))
+                cantidad = float(input("Ingrese la cantidad a transferir: "))
+                
+                banco.transferir(numero_origen, numero_destino, cantidad)
+                print(f"Se ha transfeirdo {cantidad} a {numero_destino}")
+            
             except ValueError as error:
                 print(f"Error: {error}")
 
@@ -124,16 +128,12 @@ def main():
                 print(f"Se ha aplicado el interés a la cuenta {numero_cuenta}.")
             except ValueError as error:
                 print(f"Error: {error}")
-                
+
         elif opcion == "7":
             try:
-                numero_origen = int(input("Ingrese el número de cuenta de origen: "))
-                numero_destino = int(input("Ingrese el número de cuenta del destino: "))
-                cantidad = float(input("Ingrese la cantidad a transferir: "))
-                
-                banco.transferir(numero_origen, numero_destino, cantidad)
-                print(f"Se ha transfeirdo {cantidad} a {numero_destino}")
-            
+                cuenta_numero = int(input("Ingrese el número de cuenta: "))
+                saldo = banco.consultar_saldo(cuenta_numero)
+                print(f"Saldo de la cuenta {cuenta_numero}: {saldo}")
             except ValueError as error:
                 print(f"Error: {error}")
                 

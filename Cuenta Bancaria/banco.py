@@ -27,8 +27,7 @@ class Banco:
         return None
 
     def buscar_cuenta(self, numero_cuenta):
-        # Recorre todos los clientes y sus cuentas
-        # hasta encontrar el número de cuenta solicitado.
+
         for cliente in self.clientes:
             for cuenta in cliente.cuentas:
                 if cuenta.numero_cuenta == numero_cuenta:
@@ -52,7 +51,7 @@ class Banco:
         if cuenta is None:
             raise ValueError("Cuenta no encontrada.")
         return cuenta.consultar_saldo()
-    
+
     def consultar_historial(self, numero_cuenta):
         cuenta = self.buscar_cuenta(numero_cuenta)
         
@@ -83,6 +82,7 @@ class Banco:
         
         if cantidad <= 0:
             raise ValueError("La cantidad debe ser mayor que 0.")
+        
         if cuenta_origen == cuenta_destino:
             raise ValueError("No se puede transferir a la misma cuenta.")
         
@@ -117,11 +117,6 @@ class Cliente:
         self.cuentas.append(cuenta)
 
     def mostrar_cuentas(self):
-        # Si el cliente no tiene cuentas, termina el método.
         if not self.cuentas:
             print("El cliente no tiene cuentas registradas.")
             return
-
-        # Recorre y muestra cada cuenta asociada al cliente.
-        for cuenta in self.cuentas:
-            print(cuenta)
